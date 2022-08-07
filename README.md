@@ -1,11 +1,11 @@
-# html-calendar.js
+# 🗓️ HTML-Calendar.js
 Generate calendars using HTML tables
+
+![](./html-calendar-preview.png)
 
 - Lightweight
 - No dependencies
 - Pretty
-
-![](./html-calendar-preview.png)
 
 ## [Live Demo](https://gsidhu.github.io/html-calendar.js)
 Take a look at [`index.html`](./index.html) to see a sample usage.
