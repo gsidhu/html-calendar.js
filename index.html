@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Lightweight JS library for generating a basic HTML calendar.">
+    <meta name="author" content="Gurjot Sidhu">
+    <title>HTML Calendar</title>
+
+    <link rel="canonical" href="https://gsidhu.github.io/html-calendar-js/">
+    <title>HTML Calendar</title>
+    <!-- Bootstrap v5.2.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- HTML Calendar -->
+    <script src="./html-calendar.js"></script>
+    <style>
+      th, td {
+        text-align: center;
+      }
+      .demo-dropdown {
+        font-size: 1.3rem;
+      }
+      .plain-link:hover {
+        color: white !important;
+      }
+    </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <div href="#" class="navbar-brand d-flex align-items-center">
+          <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-mortarboard mx-2" viewBox="0 0 16 16"><path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/><path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Zm-.068 1.873.22-.748 3.496 1.311a.5.5 0 0 0 .352 0l3.496-1.311.22.748L8 12.46l-3.892-1.556Z"/></svg>
+          </div>
+          <a class="navbar-brand d-flex align-items-center" href='/'>
+            <span style="text-align: center;"><strong id="headline">HTML Calendar.js</strong></span>
+          </a>
+        </div>
+        <a class="navbar-toggler plain-link" type="button" href='https://github.com/gsidhu/html-calendar-js' target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    
+  </header>
+  
+  <main>
+    <!-- Hero container -->
+    <section class="py-3 text-center container">
+      <div class="row py-lg-4">
+        <div class="col mx-auto">
+          <h1 class="fw-light py-2" id="one-month">Calendar for 
+            <span class='demo-dropdown'>
+              <select name="demo-month" id="demo-month" onchange="updateDemo()">
+                  <option value="01">January</option>
+                  <option value="02">February</option>
+                  <option value="03">March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08" selected>August</option>
+                  <option value="09">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+              </select>
+            </span>
+            <span class='demo-dropdown'>
+              <select name="demo-year" id="demo-year" onchange="updateDemo()">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022" selected>2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031">2031</option>
+            </select>
+            </span>
+          </h1>
+          <h1 class="fw-light py-2 d-none" id="range-months">Calendar from 
+            <span class='demo-dropdown'>
+              <select name="range-start-month" id="range-start-month" onchange="updateDemo()">
+                  <option value="01">January</option>
+                  <option value="02">February</option>
+                  <option value="03">March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08" selected>August</option>
+                  <option value="09">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+              </select>
+            </span>
+            <span class='demo-dropdown'>
+              <select name="range-start-year" id="range-start-year" onchange="updateDemo()">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022" selected>2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031">2031</option>
+            </select>
+            </span>
+            &nbsp;to&nbsp;
+             <span class='demo-dropdown'>
+              <select name="range-end-month" id="range-end-month" onchange="updateDemo()">
+                  <option value="01">January</option>
+                  <option value="02">February</option>
+                  <option value="03">March</option>
+                  <option value="04">April</option>
+                  <option value="05">May</option>
+                  <option value="06">June</option>
+                  <option value="07">July</option>
+                  <option value="08">August</option>
+                  <option value="09" selected>September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+              </select>
+            </span>
+            <span class='demo-dropdown'>
+              <select name="range-end-year" id="range-end-year" onchange="updateDemo()">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022" selected>2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+                <option value="2028">2028</option>
+                <option value="2029">2029</option>
+                <option value="2030">2030</option>
+                <option value="2031">2031</option>
+            </select>
+            </span>
+          </h1>
+          <p class="lead text-muted py-2">Lightweight. No dependency. Pretty.</p>
+          <p class="text-muted py-2 d-none" id="show-month"><span style="text-decoration:underline; cursor:pointer;" onclick="toggleMonthRange()">Show one month.</span></p>
+          <p class="text-muted py-2" id="show-range"><span style="text-decoration:underline; cursor:pointer;" onclick="toggleMonthRange()">Show range of months.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendar -->
+    <div class="py-5 bg-light">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 justify-content-center" id="insert-calendars">
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+
+  </main>
+  
+  <!-- Footer -->
+  <footer class="text-muted py-5">
+    <div class="container">
+      <p class="float-end mb-0"><a href='https://github.com/gsidhu/html-calendar-js' class="text-muted" target="_blank">View on GitHub.</a></p>
+      <p class="mb-0"><svg data-name="creative-commons" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20">
+        <path fill="currentColor" d="M9.98172 0C12.779 0 15.1605 0.976578 17.1246 2.9288C18.0647 3.86912 18.7794 4.94383 19.2675 6.15197C19.7553 7.36043 20 8.64295 20 10.0002C20 11.3692 19.7584 12.6521 19.2769 13.848C18.7947 15.0443 18.0831 16.1012 17.1431 17.0178C16.1671 17.9818 15.0599 18.7203 13.8215 19.2322C12.5836 19.7441 11.3036 20 9.98234 20C8.66107 20 7.39605 19.7475 6.1876 19.2409C4.97945 18.7353 3.896 18.0031 2.93755 17.045C1.97909 16.0868 1.25002 15.0062 0.750012 13.8037C0.250004 12.6011 0 11.3336 0 10.0002C0 8.67857 0.252816 7.40793 0.758762 6.1876C1.26471 4.96726 2.00003 3.87506 2.96411 2.91067C4.86883 0.97064 7.20793 0 9.98172 0ZM10.018 1.80378C7.73231 1.80378 5.80947 2.6016 4.24975 4.19663C3.4638 4.99445 2.85973 5.89009 2.43723 6.88417C2.01409 7.87825 1.80315 8.91701 1.80315 10.0005C1.80315 11.072 2.01409 12.1049 2.43723 13.0983C2.86004 14.093 3.4638 14.9799 4.24975 15.7596C5.03539 16.5396 5.92197 17.1343 6.91073 17.5456C7.89856 17.9562 8.93451 18.1615 10.018 18.1615C11.0892 18.1615 12.1274 17.9537 13.1346 17.5368C14.1405 17.1196 15.0474 16.519 15.8574 15.7334C17.4168 14.2096 18.1962 12.2989 18.1962 10.0008C18.1962 8.89358 17.9937 7.84606 17.589 6.85792C17.185 5.86978 16.5953 4.98914 15.8221 4.21475C14.214 2.60754 12.2799 1.80378 10.018 1.80378ZM9.89265 8.33982L8.55295 9.03639C8.40982 8.7392 8.2345 8.53045 8.02638 8.41138C7.81793 8.29263 7.62449 8.23294 7.44574 8.23294C6.55323 8.23294 6.10635 8.82201 6.10635 10.0008C6.10635 10.5364 6.21947 10.9645 6.44541 11.2861C6.67167 11.6077 7.00511 11.7686 7.44574 11.7686C8.02919 11.7686 8.43982 11.4827 8.67826 10.9114L9.91016 11.5364C9.64828 12.0249 9.28515 12.4086 8.82076 12.6883C8.35701 12.9683 7.84481 13.108 7.28511 13.108C6.39229 13.108 5.67165 12.8346 5.12414 12.2864C4.57663 11.7389 4.30288 10.977 4.30288 10.0011C4.30288 9.04858 4.57976 8.29294 5.13321 7.73325C5.68665 7.17386 6.38604 6.89386 7.23168 6.89386C8.47013 6.89323 9.35671 7.37543 9.89265 8.33982ZM15.6606 8.33982L14.339 9.03639C14.1962 8.7392 14.0202 8.53045 13.8121 8.41138C13.6033 8.29263 13.4036 8.23294 13.214 8.23294C12.3211 8.23294 11.8742 8.82201 11.8742 10.0008C11.8742 10.5364 11.9877 10.9645 12.2136 11.2861C12.4396 11.6077 12.7727 11.7686 13.214 11.7686C13.7968 11.7686 14.2077 11.4827 14.4455 10.9114L15.6956 11.5364C15.4221 12.0249 15.0527 12.4086 14.589 12.6883C14.1246 12.9683 13.6187 13.108 13.0711 13.108C12.1661 13.108 11.4433 12.8346 10.902 12.2864C10.3595 11.7389 10.0889 10.977 10.0889 10.0011C10.0889 9.04858 10.3655 8.29294 10.9195 7.73325C11.4727 7.17386 12.1721 6.89386 13.0174 6.89386C14.2555 6.89323 15.1371 7.37543 15.6606 8.33982Z"></path>
+        </svg> <a href="https://thatgurjot.com" target="_blank" class="text-muted">Gurjot.</a></p>
+      <p class="text-center mb-0 pt-5 pb-0"><small class="text-muted">be kind.</small></p>
+    </div>
+  </footer>
+
+  <script>
+    function createCalCard(cardID) {
+      let col = document.createElement('div')
+      let card = document.createElement('div')
+      card.classList.add('card', 'shadow-sm')
+      let calOuter = document.createElement('div')
+      calOuter.classList.add('html-calendar', 'card-body')
+      calOuter.setAttribute('id', cardID)
+      card.appendChild(calOuter)
+      col.appendChild(card)
+      return col
+    }
+
+    // add colour to first month
+    function colourFirstMonth() {
+      let firstCal = document.getElementsByClassName('html-calendar')[0]
+      colorDates(firstCal, [[1,today.getDate()-1,"red","white"],[today.getDate(), today.getDate(),"green","white"]])
+    }
+
+    // clear the calendars outer divs
+    function clearCalendar() {
+      document.getElementById('insert-calendars').innerHTML = ""
+    }
+
+    // update demo when dropdown changes
+    function updateDemo() {
+      clearCalendar()
+      if (!showRange) {
+        let newMonth = document.getElementById('demo-month').value
+        let newYear = document.getElementById('demo-year').value
+        mYArray = [newYear + '-' + newMonth]
+        let outerDiv = document.getElementById('insert-calendars')
+        outerDiv.appendChild(createCalCard(newYear + '-' + newMonth))
+      } else {
+        mYArray = []
+        let startMonth = parseInt(document.getElementById('range-start-month').value)
+        let startYear = parseInt(document.getElementById('range-start-year').value)
+        let endMonth = parseInt(document.getElementById('range-end-month').value)
+        let endYear = parseInt(document.getElementById('range-end-year').value)
+        let monthsAdded = 0
+        let totalMonths = 0
+        if (startYear === endYear) {
+          totalMonths = endMonth - startMonth
+        } else {
+          totalMonths = 12 + endMonth - startMonth
+        }
+        let outerDiv = document.getElementById('insert-calendars')
+        while (monthsAdded <= totalMonths) {
+          let monYe = ''
+          let modulo = (startMonth+monthsAdded) % 12
+          if (modulo >= startMonth || modulo === 0) {
+            if ((startMonth + monthsAdded) < 10) {
+              monYe = startYear + '-0' + (startMonth + monthsAdded)
+            } else {
+              monYe = startYear + '-' + (startMonth + monthsAdded)
+            }
+          } else {
+            monYe = endYear + '-' + modulo
+          }
+          monthsAdded += 1
+          // check if the month is already in the DOM
+          if (mYArray.indexOf(monYe) === -1) {
+            mYArray.push(monYe)
+            outerDiv.appendChild(createCalCard(monYe))
+          }
+        }
+      }
+      autoAddCalendarToDOM(compactCal)
+      colourFirstMonth()
+    }
+
+    function toggleMonthRange() {
+      showRange = !showRange
+      document.getElementById('one-month').classList.toggle('d-none')
+      document.getElementById('range-months').classList.toggle('d-none')
+      document.getElementById('show-month').classList.toggle('d-none')
+      document.getElementById('show-range').classList.toggle('d-none')
+      updateDemo()
+      autoAddCalendarToDOM(compactCal)
+      colourFirstMonth()
+    }
+
+    // on each load
+    let compactCal = true
+    let today = new Date()
+    let mYArray = []
+    let showRange = false
+    updateDemo()
+  </script>
+</body>
+</html>
