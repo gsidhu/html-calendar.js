@@ -27,7 +27,7 @@ Take a look at [`index.html`](./index.html) to see a sample usage.
 ```
 1. Add the script to your webpage.
 2. Create a `div` element with the `html-calendar` class and give it an ID in the **YYYY-MM** format.
-3. Run the `autoAddCalendarToDOM()` function and a calendar will automatically be added to the 
+3. Run the `autoAddCalendarToDOM()` function and a calendar will automatically be added to the div
 
 ## How to add colour
 Each `td` element in the generated calendar table has the date in YYYY-MM-DD format as a class. Using this the built-in `colorDates` function is able to add colour to specific dates.
