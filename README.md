@@ -5,7 +5,10 @@ Generate calendars using HTML tables
 - No dependencies
 - Pretty
 
+![](./html-calendar-preview.png)
+
 ## [Live Demo](https://gsidhu.github.io/html-calendar.js)
+Take a look at [`index.html`](./index.html) to see a sample usage.
 
 ## Features
 1. Add the calendar for any given month
